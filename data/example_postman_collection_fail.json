@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "a46cd818-424f-4203-a3a8-1c038b6c0f80",
+		"name": "Postman+Prometheus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sample folder",
+			"item": [
+				{
+					"name": "GET status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "efe0b60d-9c32-456b-ad40-9df1239b79df",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://httpbin.org/status/200",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"status",
+								"200"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a31b2d9-9d47-40f7-ae21-2321ab3fd4cb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Data is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data).to.eql('hi there!!!!');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "hi there!",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://httpbin.org/post",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
