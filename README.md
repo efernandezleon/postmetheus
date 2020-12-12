@@ -2,7 +2,7 @@
 
 This is a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus
 
-## Requirements:
+## Requirements:
 
 The script has been developed using Python 3.9 and it needs the Postman CLI [newman](https://github.com/postmanlabs/newman) to works. It can be installed with:
 
