@@ -12,7 +12,7 @@ $ npm install -g newman
 
 ## How to use:
 
-1. Define your Postman collection and include tests to verify the endpoints are working properly. To know more about how to write tests, you can head for official (guideline)[https://learning.postman.com/docs/writing-scripts/test-scripts/]. In addition, there are some samples of collections in the folder `data` to just to play around with this tool.
+1. Define your Postman collection and include tests to verify the endpoints are working properly. To know more about how to write tests, you can head for official [guideline](https://learning.postman.com/docs/writing-scripts/test-scripts/). In addition, there are some samples of collections in the folder `data` to just to play around with this tool.
 
 2. Install the dependencies in the `requirements.txt` with the following command:
 
