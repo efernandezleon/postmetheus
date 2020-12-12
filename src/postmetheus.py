@@ -8,7 +8,7 @@ from metrics import run_worker
 
 async def main():
     """
-    xxxxxx
+    This function takes the arguments from the command line and will execute the worker and API server
     """
     example = """Examples:
     > python3 postmetheus.py -c mycollection.json -e myenvironment.json -t 5"
