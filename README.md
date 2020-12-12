@@ -2,9 +2,17 @@
 
 This is a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus
 
+## Requirements:
+
+The script has been developed using Python 3.9 and it needs the Postman CLI [newman](https://github.com/postmanlabs/newman) to works. It can be installed with:
+
+```
+$ npm install -g newman
+```
+
 ## How to use:
 
-1. Define your Postman collection and include tests to verify if the endpoints are working properly.
+1. Define your Postman collection and include tests to verify the endpoints are working properly. To know more about how to write tests, you can head for official (guideline)[https://learning.postman.com/docs/writing-scripts/test-scripts/]. In addition, there are some samples of collections in the folder `data` to just to play around with this tool.
 
 2. Install the dependencies in the `requirements.txt` with the following command:
 
@@ -18,7 +26,7 @@ This is a tool to continuously check an API described in a Postman collection an
     $ python3 src/postmetheus.py -c my_collection.json
     ```
 
-To know more about the different options available in the script you can use the flag `--help`:
+    To know more about the different options available in the script you can use the flag `--help`:
 
     ```
     usage: postmetheus [-h] [--collection COLLECTION] [--environment ENVIRONMENT] [--timer TIMER]
@@ -36,9 +44,9 @@ To know more about the different options available in the script you can use the
         > python3 postmetheus.py -c mycollection.json -e myenvironment.json -t 5"
     ```
 
-This script will run periodically the `newman` tool and will expose the result via HTTP by using the Prometheus format.
+    This script will run periodically the `newman` tool and will expose the result via HTTP by using the Prometheus format.
 
-3. The script will launch a HTTP server listening to the port `8080`, so you can access the path `http:/localhost:8080/metrics` and see the different metrics in the Prometheus text format.
+4. The script will launch a HTTP server listening to the port `8080`, so you can access the path `http:/localhost:8080/metrics` and see the different metrics in the Prometheus text format.
 
 The metrics will include:
 
