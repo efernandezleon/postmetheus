@@ -4,12 +4,10 @@ import asyncio
 import os.path
 import sys
 
-from prometheus_client import (
-    Gauge, Histogram, REGISTRY, generate_latest
-)
+from prometheus_client import Gauge, Histogram, REGISTRY, generate_latest
 
 METRICS = {}
-OUTPUT_FILE = 'outputfile.json'
+OUTPUT_FILE = "outputfile.json"
 
 
 def run_worker(loop, collection, environment, time_to_wait):
@@ -54,7 +52,7 @@ def _generate_metrics(collection, environment):
     _run_newman(collection, environment)
     data = _read_file(OUTPUT_FILE)
     if not data:
-        print('Error reading the newman output file')
+        print("Error reading the newman output file")
         return
 
     for execution in data['run']['executions']:
@@ -81,13 +79,13 @@ def _generate_metrics(collection, environment):
 
         # Generating Histograms for response time and size
         _create_histogram(
-            name=f'{common_key}_response_time',
+            name=f"{common_key}_response_time",
             description=f"Response time for the request {item['name']}",
             value=execution['response']['responseTime']
         )
 
         _create_histogram(
-            name=f'{common_key}_response_size',
+            name=f"{common_key}_response_size",
             description=f"Response size for the request {item['name']}",
             value=execution['response']['responseSize']
         )
@@ -101,7 +99,7 @@ def _check_file(file):
     if file.startswith(('http://', 'https://')):
         return
     if not os.path.isfile(file):
-        print(f'File {file} not found')
+        print(f"File {file} not found")
         sys.exit(1)
 
 
