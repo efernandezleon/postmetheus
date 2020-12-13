@@ -1,8 +1,8 @@
 # PostMetheus
 
-[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/efernandezleon/postmetheus/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-This repository is for the *PostMetheus**, a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus.
+This repository is for the **PostMetheus**, a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus.
 
 **The end goal of this tool:**
 
