@@ -1,6 +1,14 @@
 # PostMetheus
 
-This is a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus
+[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
+This repository is for the *PostMetheus**, a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus.
+
+**The end goal of this tool:**
+
+- Take in advantage of the testing feature of Postman to use it as a **Continuous Testing of APIs**
+- Provide an easy way to run periodically this monitoring without external and more sophisticated tools like NewRelic
+- Expose the testing report as a **Prometheus** metrics in order to include in your own monitoring and alert workflows 
 
 ## Requirements:
 
@@ -50,7 +58,11 @@ $ npm install -g newman
 
 The metrics will include:
 
-- Number of fail tests for every endpoint.
+- Number of failed tests for every endpoint.
 - If every a single assertion for tests in every endpoint has passed or not.
 - Response time for endpoints.
 - Response size for endpoints.
+
+## License
+
+- [MIT License](https://github.com/efernandezleon/postmetheus/blob/main/LICENSE)
