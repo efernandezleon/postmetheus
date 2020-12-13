@@ -1,6 +1,6 @@
 # PostMetheus
 
-[![GitHub Super-Linter](https://github.com/efernandezleon/postmetheus/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/efernandezleon/postmetheus/workflows/Super-Linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 This repository is for the **PostMetheus**, a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus.
 
@@ -49,7 +49,7 @@ $ npm install -g newman
                             Used to specify the frequency in seconds to run Newman. The env var WORKER_TIMER can also used.
 
     Examples:
-        > python3 postmetheus.py -c mycollection.json -e myenvironment.json -t 5"
+        > python3 postmetheus.py -c mycollection.json -e myenvironment.json -t 5
     ```
 
     This script will run periodically the `newman` tool and will expose the result via HTTP by using the Prometheus format.
