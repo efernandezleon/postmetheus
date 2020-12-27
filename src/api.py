@@ -1,3 +1,5 @@
+import logging
+
 from aiohttp import web
 from metrics import metrics_to_text
 
@@ -16,7 +18,7 @@ async def _run_server():
     await runner.setup()
 
     site = web.TCPSite(runner, "0.0.0.0", 8080)
-    print("Check the metrics at http://localhost:8080/metrics")
+    logging.info("Check the metrics at http://localhost:8080/metrics")
     await site.start()
 
 

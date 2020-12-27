@@ -1,7 +1,8 @@
-import subprocess
-import json
 import asyncio
+import json
+import logging
 import os.path
+import subprocess
 import sys
 
 from prometheus_client import Gauge, Histogram, REGISTRY, generate_latest
@@ -12,7 +13,7 @@ REPORT_FILE = "newman_report.json"
 
 def run_worker(loop, collection, environment, time_to_wait):
     """ Setup a worker to run Newman CLI periodically """
-    print(f"Running Newman for the collection {collection}")
+    logging.info(f"Running Newman for the collection {collection}")
 
     loop.create_task(
         _run_periodically(
@@ -52,7 +53,7 @@ def _generate_metrics(collection, environment):
     _run_newman(collection, environment)
     data = _read_file(REPORT_FILE)
     if not data:
-        print("Error reading the newman output file")
+        logging.error("Error reading the output file {REPORT_FILE}")
         return
 
     for execution in data['run']['executions']:
@@ -99,7 +100,7 @@ def _check_file(file):
     if file.startswith(('http://', 'https://')):
         return
     if not os.path.isfile(file):
-        print(f"File {file} not found")
+        logging.error(f"File {file} not found")
         sys.exit(1)
 
 
