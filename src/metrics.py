@@ -7,7 +7,7 @@ import sys
 from prometheus_client import Gauge, Histogram, REGISTRY, generate_latest
 
 METRICS = {}
-OUTPUT_FILE = "outputfile.json"
+REPORT_FILE = "newman_report.json"
 
 
 def run_worker(loop, collection, environment, time_to_wait):
@@ -41,8 +41,8 @@ def _run_newman(collection, environment):
     environment = f'-e {environment}' if environment else ''
     process = subprocess.Popen(
         [f"""
-        /usr/local/bin/newman run {collection} {environment} \
-            --reporters json --reporter-json-export {OUTPUT_FILE}
+        newman run {collection} {environment} \
+            --reporters json --reporter-json-export {REPORT_FILE}
         """],
         shell=True, stdout=subprocess.PIPE)
     process.wait()
@@ -50,7 +50,7 @@ def _run_newman(collection, environment):
 
 def _generate_metrics(collection, environment):
     _run_newman(collection, environment)
-    data = _read_file(OUTPUT_FILE)
+    data = _read_file(REPORT_FILE)
     if not data:
         print("Error reading the newman output file")
         return

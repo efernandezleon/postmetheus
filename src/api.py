@@ -15,7 +15,8 @@ async def _run_server():
     runner = web.AppRunner(app)
     await runner.setup()
 
-    site = web.TCPSite(runner, "localhost", 8080)
+    site = web.TCPSite(runner, "0.0.0.0", 8080)
+    print("Check the metrics at http://localhost:8080/metrics")
     await site.start()
 
 
