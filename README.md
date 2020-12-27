@@ -63,6 +63,24 @@ The metrics will include:
 - Response time for endpoints.
 - Response size for endpoints.
 
+## Use with Docker:
+
+The easiest way to run as a Docker container is to pull directly from the [Docker Hub](https://hub.docker.com/r/efernandezleon/postmetheus):
+
+```
+$ docker pull efernandezleon/postmetheus
+```
+
+Then, just run the container mounting a volumen with the folder including the collection you want to monitor:
+
+```
+$ docker run \
+    -e POSTMAN_COLLECTION=data/api_collection.json \
+    -v /path/to/your/data:/usr/src/postmetheus/data \
+    -p 8080:8080 \
+    efernandezleon/postmetheus
+```
+
 ## License
 
 - [MIT License](https://github.com/efernandezleon/postmetheus/blob/main/LICENSE)
