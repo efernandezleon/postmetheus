@@ -2,13 +2,13 @@
 
 [![GitHub Super-Linter](https://github.com/efernandezleon/postmetheus/workflows/Super-Linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-This repository is for the **PostMetheus**, a tool to continuously check an API described in a Postman collection and exporting the metrics via Prometheus.
+A tool for continuously checking an API described in a Postman collection and exporting the metrics via Prometheus.
 
 **The end goal of this tool:**
 
-- Take in advantage of the testing feature of Postman to use it as a **Continuous Testing of APIs**
-- Provide an easy way to run periodically this monitoring without external and more sophisticated tools like NewRelic
-- Expose the testing report as a **Prometheus** metrics in order to include in your own monitoring and alert workflows 
+- Take advantage of the testing feature of Postman to use it as a **Continuous Testing of APIs**
+- Provide an easy way to periodically run this monitoring testing without external and more sophisticated tools like NewRelic
+- Expose the testing report as a **Prometheus** metrics in order to include them in your own monitoring and alert workflows 
 
 ## Requirements:
 
@@ -54,7 +54,7 @@ $ npm install -g newman
 
     This script will run periodically the `newman` tool and will expose the result via HTTP by using the Prometheus format.
 
-4. The script will launch a HTTP server listening to the port `8080`, so you can access the path `http:/localhost:8080/metrics` and see the different metrics in the Prometheus text format.
+4. The script will launch a HTTP server listening to the port `8080`, so you can access the path `http://localhost:8080/metrics` and see the different metrics in the Prometheus text format.
 
 The metrics will include:
 
