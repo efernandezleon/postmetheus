@@ -26,3 +26,4 @@ jobs:
           VALIDATE_PYTHON_ISORT: false
           VALIDATE_PYTHON_BLACK: false
           VALIDATE_MARKDOWN: false
+          VALIDATE_DOCKERFILE: false
