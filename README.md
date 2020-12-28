@@ -44,7 +44,7 @@ $ npm install -g newman
     --collection COLLECTION, -c COLLECTION
                             Used to specify a Postman collection file or URL. The env var POSTMAN_COLLECTION can also used.
     --environment ENVIRONMENT, -e ENVIRONMENT
-                            Used to specify a Postman environment file. The env var POSTMAN_ENVIRONMENT can also used.
+                            Used to specify a Postman environment file or URL. The env var POSTMAN_ENVIRONMENT can also used.
     --timer TIMER, -t TIMER
                             Used to specify the frequency in seconds to run Newman. The env var WORKER_TIMER can also used.
 
@@ -71,7 +71,7 @@ The easiest way to run as a Docker container is to pull directly from the [Docke
 $ docker pull efernandezleon/postmetheus
 ```
 
-Then, just run the container mounting a volumen with the folder including the collection you want to monitor:
+Then, just run the container mounting a volume with the folder including the collection you want to monitor:
 
 ```
 $ docker run \
